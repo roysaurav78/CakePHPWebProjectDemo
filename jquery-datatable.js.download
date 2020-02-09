@@ -1,0 +1,38 @@
+$(function () {
+    // $('.js-basic-example').DataTable();
+
+    //Exportable table
+    $('.js-exportable').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            // 'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
+        "paging": false,
+        // "bLengthChange": false,
+        // "bPaginate": false,
+        "bInfo": false,
+        "bFilter": false,
+    });
+
+    // $('.howMany').change(function () {
+    //     alert( $(this).text() );
+    // })
+    $('.page_limit').on('change', function(e) {
+        e.stopImmediatePropagation();
+        // var pathname = window.location.pathname; // Returns path only
+        // var url      = window.location.href;     // Returns full URL
+        page_limitV = "?page_limit="+this.value;
+        urlWithoutQueryString = window.location.href.split('?')[0]+page_limitV;
+        window.location.replace(urlWithoutQueryString);
+        // alert( window.location.href.split('?')[0] );
+        // alert( this.value );
+    });
+	//searchVal=$('.search').val();
+    // alert(searchVal.length);
+   // if(searchVal.length > 0){
+        // alert($(searchVal).length);
+    //    $('.search').closest('.form-line').addClass('focused')
+   // } 
+
+
+});
